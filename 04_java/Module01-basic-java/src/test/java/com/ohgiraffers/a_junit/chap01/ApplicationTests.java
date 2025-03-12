@@ -6,7 +6,7 @@ package com.ohgiraffers.a_junit.chap01;
 * 시스템 전체의 안정성을 확인할 수 있게 된다.
 *
 * 특히, junit과 같은 테스트 프레임워크를 활용하면
-* @Test, assertEquals, assertTure 등의 기능을 통해 개발자가 의도한 대로 코드가 동작하는지 쉽게 확인할 수 있다.
+* @Test, assertEquals, assertTrue 등의 기능을 통해 개발자가 의도한 대로 코드가 동작하는지 쉽게 확인할 수 있다.
 * 이를 통해 버그를 조기에 발견하고 수정할 수 있으며 개발 비용과 시간을 아낄 수 있다.
 * */
 
