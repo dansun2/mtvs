@@ -1,6 +1,5 @@
 package com.ohgiraffers.f_activity.mission;
 
-import com.ohgiraffers.f_activity.lesson.Application;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
