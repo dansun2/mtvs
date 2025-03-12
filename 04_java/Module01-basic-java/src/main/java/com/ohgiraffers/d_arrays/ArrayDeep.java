@@ -26,5 +26,18 @@ public class ArrayDeep {
         System.out.println(deepCopy[0]);
         System.out.println(arr[0]);
 
+        /*
+        * 배열 복사 (얕은 복사)
+        * 얕은 복사는 원본 배열의 참조를 새로운 변수에 할당한다.
+        * 이 경우, 두 변수는 같은 배열을 가리키며,
+        * 한 배열에서 데이터를 변경하면 다른 배열에도 영향을 주게 된다.
+        * */
+        int[] shallowCopy = arr;
+        System.out.println("원본 배열의 주소 : " + arr);
+        System.out.println("얕은 복사 배열의 주소 : " + shallowCopy);
+        System.out.println("얕은 복사 배열의 0번째 : " + shallowCopy[0]);
+        shallowCopy[0] = 1000;
+        System.out.println("원본 배열의 0번째 : " + arr[0]);
+
     }
 }
