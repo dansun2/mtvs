@@ -15,5 +15,33 @@ package com.ohgiraffers.b_loop.chap01;
 * 요새는 성능에 큰 영향을 주진 않는데 대용량 트래픽을 받거나 가독성을 생각하면 고려해야함
 * just-in-time에 대해서 찾아보자.
 * */
+
+// final 변수에서는 스네이크 케이스 사용 (합성어 사이에는 언더스코어_)
+// 클래스와 파일명은 같아야함 -> 다르면 이너클래스 적용해줘야함
+
 public class ForDepp {
+    public static void main(String[] args) {
+        int[] arr = new int[100000];
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
+        }
+        long startTime = System.nanoTime();
+        int sum1 = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum1 += arr[i];
+        }
+        long endTime = System.nanoTime();
+        System.out.println("일반 for문의 결과 : " + sum1 + ", 실행 시간 : " + (endTime - startTime));
+
+        // 2) 배열의 길이를 캐싱 한 경우
+        startTime = System.nanoTime();
+        int sum2 = 0;
+        int len = arr.length;
+        for (int i = 0; i < len; i++) {
+            sum2 += arr[i];
+        }
+        endTime = System.nanoTime();
+        System.out.println("캐싱 for문의 결과 : " + sum2 + ", 실행 시간 : " + (endTime - startTime));
+    }
 }
