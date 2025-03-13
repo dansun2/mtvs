@@ -30,18 +30,21 @@ public class Application {
 
             // 숫자에 맞는 요일을 result에 넣음
             switch (number) {
-                case 1 -> result += "Monday, ";
-                case 2 -> result += "Tuesday, ";
-                case 3 -> result += "Wednesday, ";
-                case 4 -> result += "Thursday, ";
-                case 5 -> result += "Friday, ";
-                case 6 -> result += "Saturday, ";
+                case 1 -> result += "Monday";
+                case 2 -> result += "Tuesday";
+                case 3 -> result += "Wednesday";
+                case 4 -> result += "Thursday";
+                case 5 -> result += "Friday";
+                case 6 -> result += "Saturday";
                 case 7 -> result += "Sunday";
                 default -> result += "Unknown";
             }
-        }
 
-        // 결정된 요일 문자열을 콤마로 연결하여 결과 문자열을 생성 후 반환한다. ("Monday, Wednesday, Friday, Unknown")
+            // 배열의 길이가 끝나기 전까지 ", "를 넣어줌
+            if (i != ren - 1) {
+                result += ", ";
+            }
+        }
         return result;
     }
 }
