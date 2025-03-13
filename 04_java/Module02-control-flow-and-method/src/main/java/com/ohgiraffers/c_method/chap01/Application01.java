@@ -13,6 +13,11 @@ public class Application01 {
         int num4 = 40;
         System.out.println(num3 + num4);
         // ........위와 같은 행위를 100번 작성해보자
+
+        Application01 application01 = new Application01();
+
+        int result = application01.add(num1, num2);
+        System.out.println(result);
     }
     /*
     * 메서드
@@ -31,7 +36,7 @@ public class Application01 {
     * - public : 모든 클래스에서 접근이 가능하다.
     * - protected : 같은 패키지 또는 자식 클래스에서 접근이 가능하다.
     * - private : 같은 클래스 내에서만 접근이 가능하다.
-    * - default :
+    * - default : 같은 패키지 내에서만 접근이 가능하다.
     *
     * 반환 타입 : 메서드가 작업을 완료하고 반환할 데이터 타입이다.
     * - void 반환 값이 없을 때 사용된다.
@@ -43,7 +48,12 @@ public class Application01 {
     * - 매개변수는 여러 개를 가질 수 있으며 함수 내부에서 사용될 변수를 의미한다.
     * - 이는 일반 변수와 동일하게 타입과 이름을 갖는다.
     * */
-
+    /**
+     * 더하기 함수.
+     * @return  : a + b값을 반환함.
+     * @param a : 좌항 값
+     * @param b : 우항 값
+     * */
     public int add(int a, int b) {
         return a + b;
     }

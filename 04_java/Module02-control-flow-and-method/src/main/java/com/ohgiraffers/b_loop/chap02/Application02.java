@@ -30,7 +30,7 @@ public class Application02 {
 
             if (hp == 3) {
                 System.out.println("축하합니다. 체력 3의 행운으로 보물 상자를 발견하였습니다.");
-                break;
+//                break;
             }
 
             hp--;
