@@ -15,10 +15,36 @@ package com.ohgiraffers.a_controlflow.chap01;
 * OR 연산(||) : 둘 중 하나
 * - 두 피연산자 중 하나라도 참(true)일 경우 전체 표현식이 참
 * - 첫 번째 피연산자가 참(true)일 경우, 두 번째 피연산자를 평가할 필요가 없으므로 평가 중단.
-* 
+*
 * 메모리 관점
 * - 조건식의 변수는 스택에 저장되며, 블록 내 지역 변수도 스택 프레임에 추가된다.
 * - 너무 많은 중첩 if는 스택 사용량을 늘리고 가독성을 떨어뜨리게 된다.
 * */
 public class IfDeep {
+    public static void main(String[] args) {
+        int age = 25;
+        String discount;
+
+        // 비효율적인 조건 순서 : 드문 조건 먼저
+        // age가 19와 같은지 비교 후 else 검사
+        System.out.println("비효율적인 조건 순서 : ");
+        long startTime = System.currentTimeMillis();
+
+        if (age <= 19) {
+            discount = "학생 할인 가능";
+        } else {
+            discount = "학생 할인 불가능";
+        }
+        long endTime = System.nanoTime();
+        System.out.println("결과 : " + discount + ", 시간 : " + (endTime - startTime));
+
+        System.out.println("최적화된 조건 순서 : ");
+        if (age > 19) {
+            discount = "할인 불가";
+        } else {
+            discount = "학생 할인 가능";
+        }
+        endTime = System.nanoTime();
+        System.out.println("결과 : " + discount + ", 시간 : " + (endTime - startTime));
+    }
 }
