@@ -22,7 +22,7 @@ public class Application {
         // private 때문에 필드에 직접 접근이 불가능
         // capsule.payment = -1000;
         capsule.setPayment(-1000);
-        String result2 = capsule.selling(100000);
+        String result2 = capsule.selling();
         System.out.println(result2);
     }
 }
