@@ -1,5 +1,6 @@
 package com.ohgiraffers.oop.chap02;
 
+import com.ohgiraffers.oop.chap02.capsule.CapsuleProduct;
 import com.ohgiraffers.oop.chap02.noncapsule.Product;
 
 /*
@@ -15,7 +16,13 @@ public class Application {
         Product nonCapsule = new Product();
         nonCapsule.payment = -1000;
         String result = nonCapsule.selling(100000);
-
         System.out.println(result);
+
+        CapsuleProduct capsule = new CapsuleProduct();
+        // private 때문에 필드에 직접 접근이 불가능
+        // capsule.payment = -1000;
+        capsule.setPayment(-1000);
+        String result2 = capsule.selling(100000);
+        System.out.println(result2);
     }
 }
