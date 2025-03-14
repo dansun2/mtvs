@@ -6,7 +6,6 @@ public class Application {
         ticket.movieName = "어벤져스"; // <--개발자가 생략할 수 있다. 이걸 의도적으로 막기 위해 생성자를 이용한다.
         ticket.seatNumber = "S10";
         ticket.printTicket();
-
         /*
         * 문제점 :
         * 객체를 생성한 후, 모든 필드를 수동으로 설정해야 한다.
@@ -14,5 +13,8 @@ public class Application {
         * 필드를 설정하지 않는 경우 초기값이 없는 상태로 사용될 위험이 있다.
         * */
 
+        // 인스턴스 만들기
+        MoiveTicket ticket1 = new MoiveTicket("어벤져스", "A10");
+        ticket1.printTicket();
     }
 }
