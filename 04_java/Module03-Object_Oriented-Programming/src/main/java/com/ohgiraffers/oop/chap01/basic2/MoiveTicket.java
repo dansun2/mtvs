@@ -7,7 +7,7 @@ public class MoiveTicket {
     // final 변하지 않는 상수 (변수명을 대문자로).
     // static을 붙이고 안붙이고의 차이 공유한 자원을 여러군데에서 쓸 수 있게 메서드 area 에 적용함
     // 싱크로나이즈 블럭에 대해 공부해보기~~
-    public static final int SEATCNT = 100; 
+    public static final int SEATCNT = 100;
 
     // 생성자의 규칙
     // [접근제어자] [클래스명] (매개변수) {범위}
