@@ -1,4 +1,4 @@
-package com.ohgiraffers.z_activity;
+package com.ohgiraffers.z_activity.lesson;
 
 public class PrintedBook extends Book {
     private double shippingCost;

@@ -1,4 +1,4 @@
-package com.ohgiraffers.z_activity;
+package com.ohgiraffers.z_activity.lesson;
 
 public class BookInventoryCalculator {
     private Book[] books;
@@ -9,10 +9,10 @@ public class BookInventoryCalculator {
 
     public String calculateInventory() {
         double totalPrice = 0;
-        double highestPrice = 0;
-        double lowestPrice = 0;
-        String highestPriceString = "";
-        String lowestPriceString = "";
+        double highestPrice = books[0].getBasePrice();
+        double lowestPrice = books[0].getBasePrice();
+        String highestPriceString = books[0].getTitle();
+        String lowestPriceString = books[0].getTitle();
 
         int length = books.length;
         for (int i = 0; i < length; i++) {

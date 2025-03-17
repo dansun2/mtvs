@@ -1,4 +1,4 @@
-package com.ohgiraffers.z_activity;
+package com.ohgiraffers.z_activity.lesson;
 
 public class Ebook extends Book {
     private double discountRate;
