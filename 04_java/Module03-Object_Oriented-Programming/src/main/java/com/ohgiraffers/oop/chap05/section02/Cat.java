@@ -9,4 +9,9 @@ public class Cat extends Animal {
     public void catchMouse() {
         System.out.println("고양이가 쥐를 잡는다.");
     }
+
+    @Override
+    public String toString() {
+        return "고양이";
+    }
 }

@@ -1,4 +1,8 @@
 package com.ohgiraffers.oop.chap05.section02;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 * 다형성이란?
 * - 부모 클래스 타입으로 여러 자식 객체를 다룰 수 있는 것을 의미한다.
@@ -40,8 +44,22 @@ public class Application {
 
         for (Animal animal : animals) {
             animal.makeSound();
-            animal.guard();
-            animal.catchMouse();
+        }
+
+        // 조금 더 이해하기
+        // 스토리 : 동물원에 동물만 입장해야 하는 경우
+        Dog dog = new Dog();
+        Cat cat = new Cat();
+        FakeAnimal fakeAnimal = new FakeAnimal();
+
+        List animalList = List.of(dog, cat, fakeAnimal);
+        int index = animalList.size();
+        for (int i = 0; i < index; i++) {
+            if (animalList.get(i) instanceof Animal) {
+                System.out.println(animalList.get(i) + "는 동물원에 입장이 가능합니다.");
+            } else {
+                System.out.println(animalList.get(i) + "는 동물원에 입장이 불가능합니다.");
+            }
         }
     }
 }

@@ -9,4 +9,9 @@ public class Dog extends Animal {
     public void guard() {
         System.out.println("강아지가 집을 지킨다.");
     }
+    
+    @Override
+    public String toString() {
+        return "강아지";
+    }
 }
