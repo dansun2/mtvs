@@ -1,13 +1,14 @@
 package com.ohgiraffers.oop.chap04.section02;
 
-public class Cat {
-    private String name;
+public class Cat extends Animal{
 
     public Cat(String name) {
-        this.name = name;
+        super(name);
     }
 
+    @Override
     public void makeSound() {
-        System.out.println(this.name + "이 울음 소리를 냅니다. 야옹~~");
+        System.out.println(super.name + "가 울음소리를 냅니다. 야옹~");
     }
+
 }
