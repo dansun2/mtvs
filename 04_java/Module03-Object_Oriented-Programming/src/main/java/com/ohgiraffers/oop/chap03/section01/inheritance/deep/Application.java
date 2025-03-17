@@ -1,4 +1,4 @@
-package com.ohgiraffers.oop.chap03.inheritance.deep;
+package com.ohgiraffers.oop.chap03.section01.inheritance.deep;
 /*
 * 컴포지션 이란?
 * - 상속 대신 객체를 포함해서 기능을 사용하는 방법이다.
@@ -14,5 +14,8 @@ public class Application {
     public static void main(String[] args) {
         Car car = new Car(new Engine()); // 여기서 Car는 내연기관을 의미하는데 내연기관 차는 엔진을 포함한다.
         car.drive();
+
+        Car car2 = car.setEngine(new DiEngine());
+        car2.drive();
     }
 }

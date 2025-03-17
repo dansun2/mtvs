@@ -1,4 +1,4 @@
-package com.ohgiraffers.oop.chap03.inheritance.noninheritance;
+package com.ohgiraffers.oop.chap03.section01.inheritance.noninheritance;
 
 public class ElectricCar extends Car {
     private int batteryLevel;

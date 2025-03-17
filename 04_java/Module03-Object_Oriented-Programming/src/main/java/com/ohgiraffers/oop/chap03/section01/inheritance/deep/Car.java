@@ -1,4 +1,4 @@
-package com.ohgiraffers.oop.chap03.inheritance.deep;
+package com.ohgiraffers.oop.chap03.section01.inheritance.deep;
 
 public class Car {
     private Engine engine;
@@ -11,5 +11,10 @@ public class Car {
         this.engine.start();
         this.engine.increaseSpeed();
         System.out.println("오빠차 뽑았다~");
+    }
+
+    public Car setEngine(Engine engine) {
+        this.engine = engine;
+        return this;
     }
 }

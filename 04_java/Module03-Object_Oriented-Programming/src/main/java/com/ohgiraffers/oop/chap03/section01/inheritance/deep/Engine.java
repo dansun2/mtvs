@@ -1,4 +1,4 @@
-package com.ohgiraffers.oop.chap03.inheritance.deep;
+package com.ohgiraffers.oop.chap03.section01.inheritance.deep;
 
 public class Engine {
     public void start() {

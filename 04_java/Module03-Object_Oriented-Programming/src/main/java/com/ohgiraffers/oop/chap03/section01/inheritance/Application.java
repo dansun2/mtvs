@@ -1,7 +1,7 @@
-package com.ohgiraffers.oop.chap03.inheritance;
+package com.ohgiraffers.oop.chap03.section01.inheritance;
 
-import com.ohgiraffers.oop.chap03.inheritance.noninheritance.Car;
-import com.ohgiraffers.oop.chap03.inheritance.noninheritance.ElectricCar;
+import com.ohgiraffers.oop.chap03.section01.inheritance.noninheritance.Car;
+import com.ohgiraffers.oop.chap03.section01.inheritance.noninheritance.ElectricCar;
 
 /*
 * 상속 (inheritance)
