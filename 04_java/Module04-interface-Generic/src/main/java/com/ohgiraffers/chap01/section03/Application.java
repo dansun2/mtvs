@@ -1,4 +1,9 @@
 package com.ohgiraffers.chap01.section03;
+
+import com.ohgiraffers.chap01.section03.model.*;
+import com.ohgiraffers.chap01.section03.service.Bluetooth;
+import com.ohgiraffers.chap01.section03.service.Rechargeable;
+
 /*
 * 상속 계층도와 설계 간편화
 *
@@ -32,4 +37,41 @@ package com.ohgiraffers.chap01.section03;
 *   - 결과 : SmartPhone 과 Laptop 은 충전 가능, TV는 충전 없이 고정 기기로 유지 -> 설계 간결, 확장 쉬움
 * */
 public class Application {
+    public static void main(String[] args) {
+        System.out.println("=== 기기 특징과 충전 관점 ===");
+
+        Device smartPhone = new SmartPhone("Galaxy");
+        Device lapTop = new Laptop("macBook");
+        Device tv = new Tv("OLED TV");
+        Device headPhones = new HeadPhones("SONY");
+
+        // 모든 기기는 전원을 켜고 끄는 행위가 가능
+        smartPhone.powerOn();
+        lapTop.powerOn();
+        tv.powerOn();
+
+        smartPhone.powerOff();
+        lapTop.powerOff();
+        tv.powerOff();
+
+        // 충전 관점
+        // 휴대용 기기는 충전 행위가 가능
+        ((Rechargeable) smartPhone).recharge();
+        ((Rechargeable) lapTop).recharge();
+
+        System.out.println("=== 설계의 간편화 ===");
+        Device[] devices = {smartPhone, lapTop, tv, headPhones};
+
+        for (Device device : devices) {
+            device.powerOn();
+            if (device instanceof Rechargeable) {
+                ((Rechargeable) device).recharge();
+            }
+            if (device instanceof Bluetooth) {
+                ((Bluetooth) device).connect();
+                ((Bluetooth) device).disConnect();
+            }
+            device.powerOff();
+        }
+    }
 }

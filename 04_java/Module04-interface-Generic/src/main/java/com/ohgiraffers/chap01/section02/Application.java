@@ -28,7 +28,6 @@ public class Application {
         * */
         for (Animal animal : animals) {
             if (animal instanceof SoundMaker) { // 좌항 타입이 우항과 같은지
-                System.out.println();
                 ((SoundMaker) animal).makeSound(); // 형변환
             } else {
                 System.out.println("울음소리가 없는 동물이네요.");
