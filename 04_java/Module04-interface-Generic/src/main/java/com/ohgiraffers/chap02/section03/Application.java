@@ -20,8 +20,15 @@ import com.ohgiraffers.chap02.section03.model.*;
 public class Application {
     public static void main(String[] args) {
         System.out.println("기본 상자");
-        FoodBox<Apple> appleBox = new FoodBox<>();
-        appleBox.setItem(new Apple("Apple"));
+        FoodBox<Apple> appleBox = new FoodBox<>(); // FoodBox로 Apple타입의 객체를 담는 상자를 만듦
+
+        // 만든 객체에 item을 넣어줌 -> super클래스인 Food필드의 name = 애쁠
+        // 여기서 setItem("애쁠")을 바로 넣을 수 없는 이유는
+        // appleBox는 Apple 클래스 타입이 들어와야 하고 "애쁠"은 String 타입이다 => 타입불일치
+        appleBox.setItem(new Apple("애쁠"));
+
+        // System.out.println은 인자로 넘겨받은 객체를 출력함
+        // Food 클래스에 toString() 메서드가 있어서 출력됨
         System.out.println("꺼낸 물건 : " + appleBox.getItem());
 
         System.out.println("와일드 카드 넣기 ");
