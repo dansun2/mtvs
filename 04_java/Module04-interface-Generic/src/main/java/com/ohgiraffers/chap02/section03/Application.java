@@ -6,12 +6,12 @@ import com.ohgiraffers.chap02.section03.model.*;
 * 와일드카드란?
 * - 제네릭스에서 :어떤 타입:을 유연하게 다루는 방법
 * - 문법
-*   <? extends 타입> : 그 타입과 그 아래만 허용 (꺼내기 쉬움)
-*   <? super 타입> : 그 타입과 그 위만 허용 (넣기 쉬움)
+*   <? extends "타입"> : 그 "타입"과 그 아래만 허용 (꺼내기 쉬움)
+*   <? super "타입"> : 그 "타입"과 그 위만 허용 (넣기 쉬움)
 *
 * 설계 과정
 * 1) 기본 상자
-*   - FoxBox<Apple>는 사과만 담음 -> 다른 과일 다루려면 유연성 부족
+*   - FoodBox<Apple>는 사과만 담음 -> 다른 과일 다루려면 유연성 부족
 * 2) extends 로 꺼내기
 *   - <? extends Fruit> : 과일과 그 하위 (사과, 포도) 꺼내기 가능
 * 3) super 로 넣기
@@ -20,7 +20,7 @@ import com.ohgiraffers.chap02.section03.model.*;
 public class Application {
     public static void main(String[] args) {
         System.out.println("기본 상자");
-        FoodBox<Apple> appleBox = new FoodBox<>(); // FoodBox로 Apple타입의 객체를 담는 상자를 만듦
+        FoodBox<Apple> appleBox = new FoodBox<>(); // FoodBox로 사과의 형태만(Apple) 담는 상자를 만듦
 
         // 만든 객체에 item을 넣어줌 -> super클래스인 Food필드의 name = 애쁠
         // 여기서 setItem("애쁠")을 바로 넣을 수 없는 이유는
@@ -32,14 +32,24 @@ public class Application {
         System.out.println("꺼낸 물건 : " + appleBox.getItem());
 
         System.out.println("와일드 카드 넣기 ");
+
+        // FoodBox 형식의 반환타입 Food를 갖고 있는 객체 생성 -> Food는 조부모
+        // Apple나 Grape 같은 하위 클래스의 객체가 들어있더라도 반환 타입은 Food
         FoodBox<Food> fruitBox = new FoodBox<>();
-        putApple(fruitBox, new Apple("Apple"));
-        // --
+        putApple(fruitBox, new Apple("사과"));
+        System.out.println(fruitBox.getItem());
+        
         FoodBox<Grape> grapeBox = new FoodBox<>();
         // putApple(grapeBox, new Apple("12"));
         
     }
 
+    // set은 안되는 이유
+    // Fruit나 Fruit를 상속받고 있는 클래스중에 꺼내는것만 가능한데 -> Apple도 Fruit이고 Grape도 Fruit니까 상위 클래스인 Fruit 타입으로 받을 수 있음
+    // -> 이 박스에 들어있는게 최소한 Fruit의 하위 타입이라는 걸 컴파일러가 보장하기 때문에 꺼내는것을 허용
+    // 만약 set을 넣게 되면 Apple박스에 포도를 넣는 일이 생김 -> 타입 불일치로 런타임 에러를 발생 시킬 수 있어서 컴파일러가 막음
+    // 도서관 책장이라고 생각해라. 과학책, 소설책, 철학책이 있는데 꺼내 읽는 것은 상관이 없음.
+    // 그러나 새 책을 꽂는건 소설책 책장인지 과학책 책장인지 모르기 때문에 허용안됨
     private static void showFruit(FoodBox<? extends Fruit> box) {
         Fruit fruit = box.getItem();
         System.out.println("꺼낸 과일 : " + fruit);
@@ -57,11 +67,15 @@ public class Application {
         * */
     }
 
-    
+    // get은 안되는 이유
+    // 큰 창고에서 사과를 꺼내야 하는데 불이 꺼져있음 -> 창고가 Apple 창고인지 Fruit 창고인지 Food 창고인지 모름
+    // Fruit 창고면 Fruit 타입이 들어있을 수 있고, Food 창고면 Food 타입이 들어있을 수 있다. => 그래서 Object로만 꺼낼 수 있음
+    // Apple 포함 Apple의 상위클래스 어떤 것에 넣어도 Apple이 Fruit과 Food에 속해 있는 것은 변함이 없다 (Fruit과 Food의 일부이기 때문)
+    // => Apple, Fruit, Food 중 어떤 박스에 Apple을 넣어도 상위 타입의 규칙을 깨지 않음.
     private static void putApple(FoodBox<? super Apple> box, Apple apple) {
         box.setItem(apple);
         // 넣는 쪽에서는 넣는것만 가능
-        // Apple fruit = box.getItem();
+        // Apple fruit = box.getItem(); 은 안 됨
         /*
         * 꺼낼 수 없는 이유
         * - box는 FoodBox<? super Apple>로 정의되어 있어, Apple의 상위 타입을 허용한다.
