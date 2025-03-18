@@ -1,5 +1,7 @@
 package com.ohgiraffers.chap02.team_mission.model;
 
+import com.ohgiraffers.chap02.team_mission.service.Describable;
+
 public abstract class Animal {
     private String name;
     private int age;
@@ -29,9 +31,8 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return name + " (" + getSpecies() + ", "
+                + age+"세), 서식지 : "
+                + ", ";
     }
 }
