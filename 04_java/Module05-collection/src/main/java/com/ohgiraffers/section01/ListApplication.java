@@ -33,7 +33,7 @@ import java.util.List;
 *   - ArrayList 는 내부 배열을 사용하기 때문에 데이터의 수가 많아질 경우 메모리 사용량이 증가할 수 있다.
 *   - 메모리 부족 상황에서 자동으로 배열을 재할당하므로 성능 저하가 발생할 수 있다.
 * */
-public class Application01 {
+public class ListApplication {
     public static void main(String[] args) {
         List<String> bookList = new ArrayList<String>();
         bookList.add("자바의 정석");
