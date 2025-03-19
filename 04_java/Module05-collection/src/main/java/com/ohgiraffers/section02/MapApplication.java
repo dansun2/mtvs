@@ -29,5 +29,17 @@ public class MapApplication {
         for (Map.Entry<Integer,String> entry : bookMap.entrySet()) { // 키+밸류가 하나의 객체이다
             System.out.println("키 : " + entry.getKey() + ", 값 : " + entry.getValue());
         }
+
+        if (bookMap.containsKey(3)) {
+            System.out.println("키 값 중 3이 존재하는가? "+bookMap.get(3));
+        } else {
+            System.out.println("3인 키 값은 존재하지 않습니다.");
+        }
+
+        if (bookMap.containsValue("클린 코드")) {
+            System.out.println("bookMap에 클린 코드가 존재합니다.");
+        } else {
+            System.out.println("bookMap에 클린 코드가 존재하지 않습니다.");
+        }
     }
 }
