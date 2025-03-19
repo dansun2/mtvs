@@ -10,8 +10,8 @@ public class MapApplication {
         bookMap.put(2, "클린 코드");
         bookMap.put(3, "Effective Java");
 
-        Map<String,String> mapTest = new HashMap<>();
-        mapTest.put("일번", "자바의 정석");
+//        Map<String,String> mapTest = new HashMap<>();
+//        mapTest.put("일번", "자바의 정석");
 
         System.out.println(bookMap);
 
