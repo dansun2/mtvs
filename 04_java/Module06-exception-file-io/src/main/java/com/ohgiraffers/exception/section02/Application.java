@@ -23,7 +23,10 @@ public class Application {
             System.out.println("결과 : " + result);
         } catch (ArithmeticException e) {
             System.out.println("아놔 오류 났네~~~");
-            e.printStackTrace(); // printStackTrace는 에러 설명을 가장 상세하고 자세하게 나타내주는 메서드
+            // printStackTrace는 에러 설명을 가장 상세하고 자세하게 나타내주는 메서드
+            // 근데 호출 스택 정보가 외부로 노출될 경우 보안에 문제가 있을 수 있으니 로깅 라이브러리를 사용하여 예외 정보를 로그로 기록하는 것이 좋다.
+            // 로그 레벨을 조절하여 필요한 정보만 로그에 남길 수 있다. 그래서 printStackTrace 대신 try-catch 블럭으로 예외를 적절하게 처리하는 것이 좋음
+            e.printStackTrace();
         } catch (Exception e) { // catch 블럭은 하나의 try에 여러개 나열 가능
             e.printStackTrace();
         } finally { // catch가 잡히든 안잡히든 무조건 동작함 ex) 파일 객체를 열어주고 버퍼(값)를 쓴 후 항상 닫아줘야하니 여기서 하면 됨
