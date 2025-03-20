@@ -1,7 +1,6 @@
 package com.ohgiraffers.fileio.section03;
 
 import java.io.*;
-
 /*
  * 파일 입출력과 예외 처리의 심화 개념: 서버 엔지니어 관점에서 파일 사용 시기
  *
