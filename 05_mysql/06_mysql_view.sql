@@ -84,3 +84,45 @@ DROP VIEW enrolled_students;
  * 	- 일반적으로 뷰를 통해 데이터를 직접 수정(INSERT, UPDATE, DELETE)하는 것은 제한됨.
  * 	- 기본 키(primary key)가 포함된 경우 일부 뷰는 데이터 수정이 가능하지만, 그렇지 않으면 읽기 전용으로 사용됨
  * */
+
+
+/* ==========================
+📌 VIEW 활용 미션
+========================== */
+
+-- 📌 퀴즈 응시자의 평균 점수보다 높은 학생만 표시하는 뷰 생성
+
+-- 퀴즈 응시자의 평균 점수가 필요함
+-- 보여줄 정보는 user_id, username, avg_score
+-- 일단 users, quiz_attempts 테이블 필요 -> user_id 기준으로 join
+-- avg(score) 보다 높아야 함
+
+CREATE VIEW quiz_high_score AS
+SELECT
+	u.user_id,
+	u.username,
+	qa.score
+  FROM users u
+  INNER JOIN quiz_attempts qa ON u.user_id = qa.user_id
+ WHERE qa.score > (SELECT
+ 	avg(score) FROM quiz_attempts
+ );
+-- SELECT * FROM quiz_high_score;
+-- DROP VIEW quiz_high_score;
+
+
+
+-- 📌 특정 강좌의 결제 내역만 필터링하는 뷰 생성 (강좌 ID 3번에 해당하는 결제 내역)
+-- 조건은 course_id = 3 이다. courses랑 payments랑 course_id를 기준으로
+-- 보여줄 정보는 강좌ID, title, amount, payment_date
+CREATE VIEW find_payment_courses AS
+SELECT
+	c.course_id,
+	c.title,
+	p.amount,
+	p.payment_date
+  FROM payments p
+  INNER JOIN courses c ON c.course_id = p.course_id
+ WHERE c.course_id = 3;
+-- SELECT * FROM find_payment_courses;
+-- DROP VIEW find_payment_courses;
