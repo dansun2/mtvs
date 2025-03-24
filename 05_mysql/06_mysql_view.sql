@@ -91,6 +91,7 @@ DROP VIEW enrolled_students;
 ========================== */
 
 -- 📌 퀴즈 응시자의 평균 점수보다 높은 학생만 표시하는 뷰 생성
+-- username, score
 
 -- 퀴즈 응시자의 평균 점수가 필요함
 -- 보여줄 정보는 user_id, username, avg_score
@@ -107,14 +108,23 @@ SELECT
  WHERE qa.score > (SELECT
  	avg(score) FROM quiz_attempts
  );
--- SELECT * FROM quiz_high_score;
+SELECT * FROM quiz_high_score;
 -- DROP VIEW quiz_high_score;
 
+SELECT
+	avg(score)
+	FROM quiz_attempts;
 
 
 -- 📌 특정 강좌의 결제 내역만 필터링하는 뷰 생성 (강좌 ID 3번에 해당하는 결제 내역)
 -- 조건은 course_id = 3 이다. courses랑 payments랑 course_id를 기준으로
 -- 보여줄 정보는 강좌ID, title, amount, payment_date
+
+-- select
+-- payments -> amount
+-- courses -> title, course_id
+-- inner join payments, from courses
+-- 
 CREATE VIEW find_payment_courses AS
 SELECT
 	c.course_id,
@@ -124,5 +134,5 @@ SELECT
   FROM payments p
   INNER JOIN courses c ON c.course_id = p.course_id
  WHERE c.course_id = 3;
--- SELECT * FROM find_payment_courses;
+SELECT * FROM find_payment_courses;
 -- DROP VIEW find_payment_courses;
