@@ -69,14 +69,14 @@ DROP INDEX idx_users_username_password ON users;
 -- LIKE절
 SELECT 
 	* 
-  FROM courses
+  FROM courses;
  WHERE description LIKE "%sunt%";
 -- 0.002
 
 -- 이 애플리케이션 사용자들이 강좌 검색기능을 많이 쓰네?
 -- 근데 like도 패턴매칭이라 비용이 많이 들어감
 
-CREATE FULLTEXT INDEX idx_courses_title
+CREATE FULLTEXT INDEX idx_courses_titlee
 ON courses(description);
 
 SELECT
@@ -86,8 +86,41 @@ SELECT
  WHERE MATCH(description) against("sunt");
 -- 0.001s
 
+/*
+ * hash란 고유 키를 해시값으로 변환해 검색하는 인덱스이다.
+ * 	등록 100 -> 해시함수 -> 위치 저장
+ * 	조회 100 -> 해시함수 -> 위치 검색
+ * -- 하나씩 하는게 아니라 찾고 바로 보내는? 그런거라 굉장히 속도가 빠르다?
+ * */
 
+CREATE INDEX idx_payments_amount
+ON payments(amount) USING hash;
 
+SELECT 
+	*
+  FROM payments
+ WHERE amount = 417.47;
+-- 코드는 O(1) 검색 속도를 갖는다.
+
+/*
+ * EXPLAIN
+ * 쿼리 실행 계획을 분석해 최적화 포인트를 찾는 도구이다.
+ * MYSQL 8.4에서 추가가 되었다.
+ * */
+
+EXPLAIN
+	SELECT
+		*
+	  FROM users;
+-- select type : 쿼리의 종류
+-- table : 쿼리에서 참조하는 테이블
+-- type  : 조인의 유형을 나타내며, 쿼리의 성능에 영향을 미치는 요소
+-- possible_keys : 쿼리 실행 시 사용할 수 있는 인덱스의 목록
+-- key : 실제로 사용된 인덱스의 이름
+-- key_len : 사용된 인덱스의 길이를 바이트 단위로 나타낸다.
+-- ref : 인덱스가 사용된 경우 어떤 열과 비교하여 인덱스를 사용했는지 나타낸다.
+-- rows : 쿼리를 실행하기 위해 데이터베이스가 스택해야 하는 예상 행의 수
+-- Extra : 추가적인 정보나 쿼리 실행 시 발생하는 특별한 동작에 대한 설명
 
 
 
