@@ -5,25 +5,25 @@ import java.util.Scanner;
 public class CodingTest {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        // 세 개의 숫자를 입력받음
+        int num1 = sc.nextInt();
+        int num2 = sc.nextInt();
+        int num3 = sc.nextInt();
 
-        for (int i = 1; i <= n; i++) { // 몇줄까지 출력할건지 도는 for문
-            for (int j = 1; j <= n-i; j++) { // 공백을 출력하는 for 문
-                System.out.print(" ");
+        if (num1 == num2 && num3 == num1) {
+            System.out.println(10000+num1*1000);
+        } else {
+            if (num1 == num2) {
+                System.out.println(1000+num1*100);
+            } else if (num1 == num3) {
+                System.out.println(1000+num1*100);
+            } else if (num2 == num3) {
+                System.out.println(1000+num2*100);
+            } else {
+                int maxNum = 0;
+                maxNum = Math.max(Math.max(num1, num2), num3);
+                System.out.println(maxNum);
             }
-            for (int k = 1; k <= 2*i-1; k++) { // *을 출력하는 for 문
-                System.out.print("*");
-            }
-            System.out.println(" "); // 한 줄이 완성되면 다음줄로 내려감
-        }
-        for (int i = n-1; i > 0; i--) { // i는 4부터 시작. 3
-            for (int j = n-1; j >= i; j--) { // 공백을 1개 찍어야됨, 3
-                System.out.print(" ");
-            }
-            for (int k = 1; k <= 2*i-1; k++) {
-                System.out.print("*");
-            }
-            System.out.println(" ");
         }
     }
 }
