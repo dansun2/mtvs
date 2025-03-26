@@ -10,7 +10,7 @@ CREATE DATABASE HELLOWORLDLABS_LMS;
 -- % : 모든 원격에서 접속가능
 -- 특정 ip : 해당 ip 및 local에서 접속가능
 -- 'gorilla' 까지가 내 계정이 아니고 'gorilla'@'%' 까지가 내 계정
-create user 'hyun'@'%' IDENTIFIED BY 'hyun';
+create user 'gorilla'@'%' IDENTIFIED BY 'gorilla';
 
 
 -- 계정 권한 부여
@@ -18,7 +18,7 @@ create user 'hyun'@'%' IDENTIFIED BY 'hyun';
 -- ALL PRIVILEGES 'root'계정과 비슷한 수준의 권한을 준다. 근데 계정 생성같은건 불가능함
 -- GRANT 권한목록 ON 데이터베이스.테이블 TO '사용자명'@'호스트';
 -- 데이터베이스.*에서 *은 모든 테이블을 의미한다.
-GRANT ALL PRIVILEGES ON HELLOWORLDLABS_LMS.* TO 'hyun'@'%';
+GRANT ALL PRIVILEGES ON HELLOWORLDLABS_LMS.* TO 'gorilla'@'%';
 
 
 -- HELLOWORLDLABS_LMS 사용 -> root 계정은 모든 DB에 접근할 수 있는데
