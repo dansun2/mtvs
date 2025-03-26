@@ -7,10 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class RoleDAO {
+public class RoleDao {
     private final Connection connection;
 
-    public RoleDAO(Connection connection) {
+    public RoleDao(Connection connection) {
         this.connection = connection;
     }
 
