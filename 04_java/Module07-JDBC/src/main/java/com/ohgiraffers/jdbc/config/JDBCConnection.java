@@ -16,8 +16,11 @@ import java.util.Properties;
  * */
 public class JDBCConnection {
 
+    // HikariDataSource 가장 성능이 좋은 라이브러리
+    // 커넥션 풀을 관리하는 라이브러리 -> 메모리 누수 발생할 수 있으니 관리 필요
     private static final HikariDataSource dataSource;
 
+    // 스태틱블럭-static 변수들이 메모리에 올라가기 전에 블럭 안의 소스코드를 실행시켜서 static 변수를 초기화함
     static {
         try {
             /*
@@ -35,22 +38,24 @@ public class JDBCConnection {
             HikariConfig config = new HikariConfig();
 
             /* DB 접속을 위한 설정 정보 */
-            config.setJdbcUrl(props.getProperty("db.url"));
+            config.setJdbcUrl(props.getProperty("db.url")); // db.url이 key고 value를 가져옴
             config.setUsername(props.getProperty("db.username"));
             config.setPassword(props.getProperty("db.password"));
 
-            // 최대 커넥션
+            // 최대 커넥션 객체는 10개로 제한
             config.setMaximumPoolSize(10);
 
             // 최소 커넥션
             config.setMinimumIdle(5);
 
-            // 유휴 상태면 커넥션 닫기 즉, 30초 동안 아무런 요청이 없으면 커넥션을 닫는다
+            // 유휴 상태면 커넥션 닫기. 즉, 30초 동안 아무런 요청이 없으면 커넥션을 닫는다
             config.setIdleTimeout(30000);
 
-            config.setMaxLifetime(1800000); // 30분 후 커넥션을 새로 생성한다.
+            // 30분 후 커넥션을 새로 생성한다. -> 연결 스트리밍이 길어지면 연결에 불안정이 생길 수 있음?
+            config.setMaxLifetime(1800000);
 
-            config.setConnectionTimeout(2000);// 최대 2초 대기 후 타임 아웃
+            // 최대 2초 대기 후 타임 아웃 -> 실패로 인식하고 연결 요청을 다시 함.
+            config.setConnectionTimeout(2000);
 
             dataSource = new HikariDataSource(config);
 

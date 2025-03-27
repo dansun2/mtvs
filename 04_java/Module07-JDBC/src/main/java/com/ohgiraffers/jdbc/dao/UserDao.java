@@ -92,6 +92,8 @@ public class UserDao {
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getPassword());
             ps.setInt(4, user.getRoleId());
+            ResultSet rs = ps.getGeneratedKeys();
+            int id = rs.getInt(1);
 
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;

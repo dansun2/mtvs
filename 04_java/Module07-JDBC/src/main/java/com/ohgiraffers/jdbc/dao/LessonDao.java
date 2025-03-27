@@ -84,6 +84,9 @@ public class LessonDao {
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, title);
             try (ResultSet rs = ps.executeQuery()) {
+
+                // title은 여러개가 나올 수 있는데 (ex.강의제목이 같을 수 있음)
+                // if만 쓰면 단일행만 결과값 추출 가능함. 그래서 while을 씀
                 if (rs.next()) {
                     lesson = new Lesson(
                             rs.getInt("lesson_id"),
