@@ -37,6 +37,11 @@ public class Role {
     // 항상 기본생성자를 갖고 있어야 함. jpa에서 엔터티를 생성할 때 기본생성자를 통해 생성함 -> 언제든지 db에 입력될 수 있는 상태
     public Role() {}
 
+    public Role(int roleId, String roleName) {
+        this.roleId = roleId;
+        this.roleName = roleName;
+    }
+    
     public int getRoleId() {
         return roleId;
     }
