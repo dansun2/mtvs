@@ -5,7 +5,6 @@ import com.zaxxer.hikari.HikariDataSource;
 import com.zaxxer.hikari.HikariPoolMXBean;
 
 import java.io.IOException;
-import java.lang.management.ManagementFactory;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -21,8 +20,10 @@ public class JDBCConnection {
     private static final HikariDataSource dataSource;
 
     // 스태틱블럭-static 변수들이 메모리에 올라가기 전에 블럭 안의 소스코드를 실행시켜서 static 변수를 초기화함
+    /* static은 프로그램과 생명주기가 같음. 그래서 초기화 시점이 늦으면 안됨 */
     static {
         try {
+
             /*
              * properties
              * 키 - 값을 쌍으로 저장하는 방식이다.
@@ -35,6 +36,9 @@ public class JDBCConnection {
              * getResourceAsStream ("config") : 매개변수로 전달된 파일을 스트림으로 가져오는 역할을 수행한다.
              * */
             props.load(JDBCConnection.class.getClassLoader().getResourceAsStream("config.properties"));
+            /*
+            * HikariConfig 객체를 생성하고 그 객체에 set url, username, password 설정 가능
+            * */
             HikariConfig config = new HikariConfig();
 
             /* DB 접속을 위한 설정 정보 */
@@ -57,6 +61,7 @@ public class JDBCConnection {
             // 최대 2초 대기 후 타임 아웃 -> 실패로 인식하고 연결 요청을 다시 함.
             config.setConnectionTimeout(2000);
 
+            // 커넥션 객체 생성
             dataSource = new HikariDataSource(config);
 
         } catch (IOException e){
