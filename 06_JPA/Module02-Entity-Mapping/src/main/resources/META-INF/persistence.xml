@@ -5,6 +5,7 @@
     <persistence-unit name="jpa-lecture">
 <!--        이 클래스는 jpa-lecture이 유닛이 관리하겠다-->
         <class>com.ohgiraffers.chap01.section02.User</class>
+        <class>com.ohgiraffers.chap01.section03.Product</class>
         <properties>
             <!-- 데이터 베이스 연결 정보 -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

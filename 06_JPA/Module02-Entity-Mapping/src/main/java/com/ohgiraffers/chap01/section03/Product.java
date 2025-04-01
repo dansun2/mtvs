@@ -40,8 +40,7 @@ public class Product {
     protected Product() {
     }
 
-    public Product(Long id, String name, Money price, Manufacturer manufacturer) {
-        this.id = id;
+    public Product(String name, Money price, Manufacturer manufacturer) {
         this.name = name;
         this.price = price;
         this.manufacturer = manufacturer;
@@ -65,6 +64,10 @@ public class Product {
 
     public Manufacturer getManufacturer() {
         return manufacturer;
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
