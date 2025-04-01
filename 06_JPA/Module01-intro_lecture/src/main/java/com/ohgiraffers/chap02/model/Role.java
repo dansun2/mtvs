@@ -41,7 +41,7 @@ public class Role {
         this.roleId = roleId;
         this.roleName = roleName;
     }
-    
+
     public int getRoleId() {
         return roleId;
     }

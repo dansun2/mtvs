@@ -138,7 +138,6 @@ public class Application {
         Role role = new Role();
         role.setRoleName("Merge 테스트 권한");
         em.persist(role); // 영속성 컨텍스트에 들어감
-        em.getTransaction().commit(); // INSERT 실행과 함께 이전 트랜잭션 종료
         System.out.println("영속 상태 - Role: " + role);
 
         // 새로운 트랜잭션 시작
