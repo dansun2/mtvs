@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "section04-customer")
+@Entity(name = "Customer")
 @Table(name = "customers")
 public class Customer {
 

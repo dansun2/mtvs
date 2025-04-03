@@ -11,6 +11,10 @@
 
         <class>com.ohgiraffers.chap01.section03.model.Delivery</class>
         <class>com.ohgiraffers.chap01.section03.model.Order</class>
+
+        <class>com.ohgiraffers.chap01.section04.model.Customer</class>
+        <class>com.ohgiraffers.chap01.section04.model.Delivery</class>
+        <class>com.ohgiraffers.chap01.section04.model.Order</class>
         <properties>
             <!-- 데이터 베이스 연결 정보 -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

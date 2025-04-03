@@ -23,7 +23,7 @@ public class Order {
     @Column(name = "order_date")
     private LocalDate orderDate = LocalDate.now();
 
-    protected Order() {
+    public Order() {
     }
 
     public void setCustomer(Customer customer) {
