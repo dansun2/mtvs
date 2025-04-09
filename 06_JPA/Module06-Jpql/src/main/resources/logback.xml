@@ -1,0 +1,10 @@
+<configuration>
+    <!-- 모든 로깅 비활성화 -->
+    <logger name="org.hibernate" level="OFF"/>
+    <root level="OFF"/>
+</configuration>
+
+<!--info -> 실행시켰을때 상대방에게 알려줌-->
+<!--warn -> 여기서 이런 문제를 내포하고 있어 혹은 디플리케이티드-->
+<!--debug-->
+<!--error-->
