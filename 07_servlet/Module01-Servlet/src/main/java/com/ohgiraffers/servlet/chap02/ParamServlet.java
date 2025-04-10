@@ -36,7 +36,7 @@ public class ParamServlet extends HttpServlet { // 상속-다형성에 대해 �
         if(name == null) name = "기본이름";
         if(age == null) age = "기본나이";
 
-        // 2. 경로 값(Path Value)
+        // 2. 경로 값(Path Value) /users/1?where=name (백 <-> 프론트 현업방식)
         String pathInfo = req.getPathInfo(); // "/params" 뒤의 경로(예: /params/123 -> "123")
         String pathValue = (pathInfo != null && pathInfo.length() > 1) ? pathInfo.substring(1) : "기본경로";
 

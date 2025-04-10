@@ -10,7 +10,7 @@
     <ul>
         <li> <a href="life-cycle">생명주기</a> </li>
         <li> <a href="/chap02/index.html">파라미터</a> </li>
-        <li> <a href="/chap03/index.html">헤더 확인</a> </li>
+        <li> <a href="/chap03/index.html">익셉션 확인</a> </li>
         <li> <a href="chap04/index.html">쿠키와 세션</a> </li>
         <li> <a href="chap05/index.html">포워드와 리다이렉트</a> </li>
         <li> <a href="/auth">auth filter 확인</a> </li>
