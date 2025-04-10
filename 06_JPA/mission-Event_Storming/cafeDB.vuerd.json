@@ -4,9 +4,9 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": 0,
+    "scrollTop": -300,
     "scrollLeft": -800,
-    "zoomLevel": 1,
+    "zoomLevel": 0.79,
     "show": 487,
     "database": 4,
     "databaseName": "cafeapp",
@@ -91,7 +91,7 @@
           "color": ""
         },
         "meta": {
-          "updateAt": 1743753815882,
+          "updateAt": 1743984794823,
           "createAt": 1743665395513
         }
       },
