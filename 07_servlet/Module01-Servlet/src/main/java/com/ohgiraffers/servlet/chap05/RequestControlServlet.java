@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/request")
+@WebServlet("/request") // http://localhost:8080/request
 public class RequestControlServlet extends HttpServlet {
 
     private List<String> users = new ArrayList<>(); // 간단한 사용자 저장소 (실제로는 DB)
@@ -28,7 +28,7 @@ public class RequestControlServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         System.out.println("redirect를 통해 요청을 통해 register-form으로 전달.");
         // 회원가입 폼으로 포워드
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/chap05/register-form.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("chap05/register-form.jsp");
         dispatcher.forward(req, resp);
     }
 
@@ -45,7 +45,7 @@ public class RequestControlServlet extends HttpServlet {
                 // 중복 사용자: 리다이렉트로 가입 폼으로 돌아가기
                 HttpSession session = req.getSession();
                 session.setAttribute("error", "이미 존재하는 사용자입니다: " + username);
-                resp.sendRedirect(req.getContextPath() + "/request");
+                resp.sendRedirect(req.getContextPath() + "/request"); // http://localhost:8080/request
             } else {
                 // 회원가입 성공: 사용자 추가 후 포워드로 결과 페이지 이동
                 users.add(username);

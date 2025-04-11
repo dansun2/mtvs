@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /*
 
 IoC(Inversion of Control, 제어의 역전)
-*** 객체의 생성, 생명주기 관리까지 모든 객체에 대한 제어권이 바뀌었다는 것을 의미한다.***
+*** 객체의 생성, 생명주기 관리까지 모든 객체에 대한 제어권이 바뀌었다는 것을 의미한다.***1
 즉, 개발자가 직접 객체를 생성하고 관리하는 대신, ***프레임워크나 컨테이너가 객체의 생성,***
 의존성 주입, 생명주기를 관리하는 방식으로 ***제어 흐름이 역전***된 것을 말한다.
 예를 들어, 전통적인 방식에서는 개발자가 'new' 키워드로 객체를 직접 생성하지만, ***IoC에서는 컨테이너가 필요한 시점에 객체를 생성하고 제공한다.****
@@ -69,5 +69,6 @@ context.getBean()을 통해 필요한 객체를 컨테이너에서 가져오며,
         * */
         PaymentService paymentService2 = context.getBean(PaymentService.class);
         System.out.println("두 빈은 같은가? " + (paymentService == paymentService2));
+
     }
 }

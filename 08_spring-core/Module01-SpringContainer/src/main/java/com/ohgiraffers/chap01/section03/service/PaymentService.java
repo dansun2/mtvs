@@ -1,4 +1,4 @@
-package com.ohgiraffers.chap01.section02.service;
+package com.ohgiraffers.chap01.section03.service;
 
 public class PaymentService {
 
@@ -16,7 +16,6 @@ public class PaymentService {
 
     public boolean processPayment(String orderId, double amount) {
         System.out.println("결제 처리를 시작합니다. 주문 ID : " + orderId + ", 금액 : " + amount);
-        this.lastOrderId = orderId;
 
         boolean result = paymentGateway.processPayment(orderId, amount);
         if (result) {
