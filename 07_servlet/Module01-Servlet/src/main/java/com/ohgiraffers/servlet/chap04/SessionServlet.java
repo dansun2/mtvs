@@ -58,22 +58,23 @@ public class SessionServlet extends HttpServlet {
         String username = req.getParameter("username");
         String secret = req.getParameter("secret");
 
-        if (username != null || secret != null) {
-            HttpSession session = req.getSession(true);
+        if (username != null && !username.isEmpty()){
+            HttpSession session = req.getSession(true); // 세션이 없으면 새로 생성
             String existingUser = (String) session.getAttribute("loggedInUser");
 
-            if (existingUser == null || !existingUser.equals(username)) {
+            // 동일한 사용자인지 확인 후 비밀 저장
+            if (existingUser == null || existingUser.equals(username)) {
                 session.setAttribute("loggedInUser", username);
                 if (secret != null && !secret.isEmpty()) {
                     session.setAttribute("secret", secret);
                 }
-                session.setMaxInactiveInterval(30);
-            } else { // 로그인 된 정보가 없으면 새롭게 객체 생성
-//                session.setAttribute("loggedInUser", username);
-                if(secret != null && !secret.isEmpty()) {
+                session.setMaxInactiveInterval(30); // 세션 유효 시간 30초
+            }else{
+                session.setAttribute("loggedInUser", username);
+                if (secret != null && !secret.isEmpty()) {
                     session.setAttribute("secret", secret);
                 }
-                session.setMaxInactiveInterval(30);
+                session.setMaxInactiveInterval(30*60); // 세션 유효 시간 30초
             }
         }
         doGet(req, resp);
