@@ -22,7 +22,7 @@ public class Appconfig {
         return new NaverPayGateway();
     }
 
-    @Bean
+    @Bean()
     public PaymentService paymentService() {
         return new PaymentService(kakaoPayGateway());
     }
