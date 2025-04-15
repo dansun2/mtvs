@@ -38,9 +38,9 @@ console.log("학생 평균 점수:", totalScore / 3); // 출력: 85
 let isStudent1Adult = student1Age - 0 >= 18; // 문자열이 숫자로 변환되어 비교됨
 let isStudent2Adult = student2Age - 0 >= 18;
 let isStudent3Adult = student3Age - 0 >= 18;
-console.log(${student1Name} 성인 여부:, isStudent1Adult); // 출력: true
-console.log(${student2Name} 성인 여부:, isStudent2Adult); // 출력: true
-console.log(${student3Name} 성인 여부:, isStudent3Adult); // 출력: false
+console.log(`${student1Name} 성인 여부:`, isStudent1Adult); // 출력: true
+console.log(`${student2Name} 성인 여부:`, isStudent2Adult); // 출력: true
+console.log(`${student3Name} 성인 여부:`, isStudent3Adult); // 출력: false
 
 /*
 장점:
@@ -64,18 +64,18 @@ let student3AgeNumber = Number(student3Age);
 isStudent1Adult = student1AgeNumber >= 18; // 숫자로 변환된 나이를 비교
 isStudent2Adult = student2AgeNumber >= 18;
 isStudent3Adult = student3AgeNumber >= 18;
-console.log(${student1Name} 성인 여부:, isStudent1Adult); // 출력: true
-console.log(${student2Name} 성인 여부:, isStudent2Adult); // 출력: true
-console.log(${student3Name} 성인 여부:, isStudent3Adult); // 출력: false
+console.log(`${student1Name} 성인 여부:`, isStudent1Adult); // 출력: true
+console.log(`${student2Name} 성인 여부:`, isStudent2Adult); // 출력: true
+console.log(`${student3Name} 성인 여부:`, isStudent3Adult); // 출력: false
 
-/
+/*
 장점:
 변환 과정을 명확히 제어할 수 있다.
 데이터 처리의 의도가 분명하여 유지보수성이 높아진다.
-/
+*/
 
 // 4. 결론 및 요약
-/
+/*
 암묵적 변환:
 편리하지만 가독성이 떨어지고, 데이터 오류 가능성이 있다.
 명시적 변환:
