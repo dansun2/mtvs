@@ -14,6 +14,9 @@ public class Application {
         try {
             System.out.println("회원 등록 테스트");
             Member newMember = new Member("이름등록","aawfewfe123","aa@gmail.com","010-1111-1111","user");
+
+
+
             memberService.registerMember(newMember);
         } catch (Exception e) {
             System.out.println("예외 발생");
