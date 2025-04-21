@@ -37,9 +37,11 @@ public class FirstController {
     @PostMapping("modify") // required = false는 값이 초기화되지 않으면 null값을 넣어줌
     public String modifyMenuPrice(Model model,
                                   @RequestParam(name = "modifyName", required = false) String modifyNam,
-                                  @RequestParam(required = false) String modifyPrice) {
+                                  @RequestParam(name = "modifyPrice", required = false) String modifyPrice) {
         String message = modifyNam + "의 가격을 " + modifyPrice + "원으로 수정합니다.";
         model.addAttribute("message", message);
+        System.out.println(modifyNam);
+        model.addAttribute("modifyName", modifyNam);
 
         return "first/messagePrinter";
     }
@@ -55,9 +57,7 @@ public class FirstController {
     }
 
     @GetMapping("search")
-    public void search() {
-
-    }
+    public void search() {}
 
     @PostMapping("search")
     public String searchMenu(@ModelAttribute("menu") MenuDTO menu) {
