@@ -2,10 +2,7 @@ package com.ohgiraffers.chap01requestmapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /*
 *
@@ -29,7 +26,7 @@ public class ClassMappingTestController {
     // Path Value
     @GetMapping("/detail/{orderNo}")
     public String selectOrderDetail(@PathVariable("orderNo") String orderNo, Model model) {
-        model.addAttribute("message", orderNo);;
+        model.addAttribute("message", orderNo);
         return "mappingResult";
     }
 
