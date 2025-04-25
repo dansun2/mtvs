@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 등록</title>
+</head>
+
+<body>
+<form th:action="@{/posts/create}" method="post">
+    제목 : <input type="text" name="postTitle"/> <br>
+    내용 : <input type="text" name="postContent"/> <br>
+    <button>등록</button>
+</form>
+</body>
+
+</html>

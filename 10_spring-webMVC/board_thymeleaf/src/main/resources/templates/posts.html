@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    <button onclick="location.href='/auth/logout'">로그아웃</button>
+</div>
+<h1>게시글 목록</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>내용</th>
+        <th>작성자ID</th>
+        <th>작성일</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${ posts }">
+        <td th:text="${ post.postId }">1</td>
+        <td>
+            <a th:href="@{'/posts/' + ${post.postId}}" th:text="${post.postTitle}">제목</a>
+        </td>
+        <td th:text="${ post.postContent }">내용</td>
+        <td th:text="${ post.userId }">작성자ID</td>
+        <td th:text="${ post.formattedCreatedAt }">작성일</td>
+
+    </tr>
+    </tbody>
+</table>
+<button onclick="location.href='posts/create'">새 글 작성하기</button>
+</body>
+
+<script th:inline="javascript">
+    if ([[${successMessage != null}]] ) {
+        alert([[${successMessage}]]);
+    }
+
+    if ([[${errorMessage != null}]] ) {
+        alert([[${errorMessage}]]);
+    }
+</script>
+</html>

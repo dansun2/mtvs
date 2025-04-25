@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>수정</title>
+</head>
+<body>
+<p1>게시글 수정화면</p1>
+<form th:action="@{/posts/{postId}/update(postId=${post.postId})}" method="post">
+    <input type="hidden" name="_method" value="patch"/>
+    제목 : <input type="text" name="postTitle" th:value="${post.postTitle}"/> <br>
+    내용 : <input type="text" name="postContent" th:value="${post.postContent}"/><br>
+    <br>
+    <button type="submit">등록</button>
+</form>
+</body>
+</html>
