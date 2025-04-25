@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>상세조회</title>
+</head>
+<body>
+<p1>게시글 상세조회 화면</p1>
+<ul>
+    <li th:text="'제목 : ' + ${ post.postTitle }"></li>
+    <li th:text="'내용 : ' + ${ post.postContent }"></li>
+    <li th:text="'작성일 : ' + ${ post.formattedCreatedAt }"></li>
+</ul>
+<button th:onclick="|location.href='@{/posts/{postId}/update(postId=${post.postId})}'|">글 수정하기</button>
+<form id="deleteForm" th:action="@{/posts/{postId}/delete(postId=${post.postId})}" method="post" style="display:none;">
+    <input type="hidden" name="_method" value="delete"/>
+</form>
+<button type="button" onclick="confirmDelete()">글 삭제하기</button>
+<br>
+<button onclick="location.href='/posts'">목록</button>
+
+<script>
+    function confirmDelete() {
+        if (confirm("정말 이 글을 삭제하시겠습니까?")) {
+            document.getElementById('deleteForm').submit();
+        }
+    }
+</script>
+
+</body>
+</html>

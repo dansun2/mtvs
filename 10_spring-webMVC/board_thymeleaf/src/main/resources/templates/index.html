@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{thymeleaf/layout/default}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div sec:authorize="!isAuthenticated()">
+        <button onclick="location.href='/user/signup'">회원가입</button>
+        <button onclick="location.href='/auth/login'">로그인</button>
+    </div>
+    <div sec:authorize="hasAnyAuthority('USER')"> <!-- user만 볼 수 있게 테스트해봄 -->
+        <button onclick="location.href='/posts'">게시판으로 가기</button>
+    </div>
+</div>
+</body>
+<script th:inline="javascript">
+    if ([[${successMessage != null}]] ) {
+        alert([[${successMessage}]]);
+    }
+
+    if ([[${errorMessage != null}]] ) {
+        alert([[${errorMessage}]]);
+    }
+</script>
+</html>
