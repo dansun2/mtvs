@@ -1,0 +1,8 @@
+{
+  "/chap01/section01/page": "app/chap01/section01/page.js",
+  "/chap01/section02/page": "app/chap01/section02/page.js",
+  "/chap01/section03/page": "app/chap01/section03/page.js",
+  "/chap02/section01/page": "app/chap02/section01/page.js",
+  "/chap02/section02/page": "app/chap02/section02/page.js",
+  "/chap03/section02/page": "app/chap03/section02/page.js"
+}
