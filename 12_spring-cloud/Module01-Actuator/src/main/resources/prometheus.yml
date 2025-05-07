@@ -1,0 +1,15 @@
+# 이 yml은 꼭 이 위치에 있을 필요는 없다
+global:
+  # 15초 간격으로 스크래핑. 여러가지의 서버를 하나의 프로메테우스로 스크래핑 가능한데 global은 전체라는 뜻인가?
+  scrape_interval: 15s
+
+scrape_configs:
+  # job_name은 특정 작업을 하나 만들겠따
+  - job_name: "prometheus-demo"
+    # 어디서 이 요청을 스크래핑하는지 엔드포인트. 이 경로에 있는 것들을 프롬QL로 끌고올수있음
+    metrics_path: "/actuator/prometheus"
+    # 이 스코프 작업에 한해서는 5초마다 스크래핑하겠다
+    scrape_interval: 5s
+    static_configs: 
+      # host.docker.internal 대신 localhost를 쓰면 도커의 localhost를 참조함. host.docker.internal는 애플리케이션이 실행되는 환경
+      - targets: ['host.docker.internal:8080']
